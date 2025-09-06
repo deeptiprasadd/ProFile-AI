@@ -42,13 +42,13 @@ cd <repository_directory>
 
 ### 2.Create and activate virtual environment
 python -m venv venv
-# Windows
+-Windows
 venv\Scripts\activate
-# macOS / Linux
+-macOS / Linux
 source venv/bin/activate
 
 ### 3. Install dependencies
-# Minimal install (core features):
+- Minimal install (core features):
 pip install -r requirements.txt
 
 ### 4. Run the app
