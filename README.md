@@ -1,11 +1,11 @@
 # Profile AI 
-**Live Demo:** _(optional — add your Streamlit app URL here)_  
+**Live Demo:** https://profile-ai.streamlit.app/  
 
 ---
 
 ## Overview  
 
-**Profile AI** is a Streamlit-based Resume Review & Interview Preparation tool designed to help candidates improve their resumes and practice interviews faster. Users upload a resume (PDF / DOCX) and optionally a job description; the app then analyzes the resume, extracts skills and projects, suggests improvements, computes a role-match score, generates likely interview questions, and produces tailored sample answers. An AI coach provides quick scoring and templated rewrites for your spoken or written answers.  
+**Profile AI** is a Streamlit-based Resume Review & Interview Preparation tool designed to help candidates improve their resumes and practice interviews faster. Users upload a resume (PDF / DOCX) and optionally a job description; the app then analyses the resume, extracts skills and projects, suggests improvements, computes a role-match score, generates likely interview questions, and produces tailored sample answers. An AI coach provides quick scoring and templated rewrites for your spoken or written answers.  
 
 The app is defensive by design — parsing and AI features are optional and will work even when some third-party libraries are not installed. Sensitive content (emails, phone numbers, long IDs) is sanitized automatically.  
 
