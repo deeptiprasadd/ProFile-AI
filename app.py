@@ -10,6 +10,29 @@ import matplotlib.pyplot as plt
 
 st.set_page_config(page_title="ATS Resume Analyzer", page_icon="📄", layout="wide")
 
+st.markdown("""
+<style>
+.main-title {
+    text-align: center;
+    font-size: 52px;
+    font-weight: 700;
+    margin-top: -20px;
+    color: white;
+}
+.sub-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 400;
+    margin-top: -10px;
+    color: #bbbbbb;
+}
+</style>
+
+<h1 class="main-title">ProFile</h1>
+<h2 class="sub-title">ATS Resume Analyzer</h2>
+""", unsafe_allow_html=True)
+
+
 # ======================================================
 # PDF READER (PyPDF2) ✅ Streamlit Cloud Safe
 # ======================================================
@@ -443,4 +466,5 @@ with tabs[6]:
 
     else:
         st.info("Upload resume.")
+
 
