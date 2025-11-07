@@ -1,4 +1,4 @@
-streamlit==1.31.1
-pymupdf==1.23.7
-pillow==10.2.0
-matplotlib==3.8.2
+streamlit
+PyPDF2
+pillow
+matplotlib
