@@ -1,4 +1,3 @@
-```markdown
 # ProFile: ATS Resume Analyzer
 
 **Smart resume analysis powered by advanced parsing algorithms.**
