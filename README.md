@@ -201,12 +201,3 @@ ProFile/
 ## License
 
 MIT License - Feel free to use and modify.
-
-## Contributing
-
-Contributions are welcome! Submit a pull request or open an issue.
-
----
-
-**Built with no external AI dependencies** - Works reliably in any environment.
-```
