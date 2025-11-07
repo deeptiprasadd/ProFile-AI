@@ -314,7 +314,7 @@ def recruiter_view(text: str):
 # ======================================================
 # UI
 # ======================================================
-st.title("📄 Advanced ATS Resume Analyzer")
+st.title("ProFile:ATS Resume Analyzer")
 
 with st.sidebar:
     st.header("Upload Resume")
@@ -443,3 +443,4 @@ with tabs[6]:
 
     else:
         st.info("Upload resume.")
+
