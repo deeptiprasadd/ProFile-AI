@@ -33,9 +33,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-# ======================================================
-# PDF READER (PyPDF2) ✅ Streamlit Cloud Safe
-# ======================================================
+# PDF READER (PyPDF2) Streamlit Cloud Safe
 def read_uploaded_file(file) -> str:
     if not file:
         return ""
@@ -50,9 +48,7 @@ def read_uploaded_file(file) -> str:
         return ""
 
 
-# ======================================================
-# CLEAN STRUCTURED PREVIEW
-# ======================================================
+# CLEAN STRUCTURED PREVIEW#
 SECTION_TOKENS = [
     "summary", "objective", "skills", "education", "experience",
     "projects", "certifications", "leadership", "achievements"
@@ -82,9 +78,8 @@ def clean_preview_text(text: str) -> str:
     return "\n".join(cleaned)
 
 
-# ======================================================
-# SKILL & VERB LEXICONS
-# ======================================================
+# SKILL & VERB LEXICONS#
+
 ACTION_VERBS = {
     "built","designed","led","optimized","automated","deployed","shipped",
     "improved","analyzed","implemented","integrated","scaled","reduced",
@@ -109,9 +104,8 @@ STOPWORDS = set((
 ))
 
 
-# ======================================================
 # HELPER FUNCTIONS
-# ======================================================
+
 def words(text: str) -> List[str]:
     return re.findall(r"[a-zA-Z][a-zA-Z\+\#\-]{1,}", text.lower())
 
@@ -164,9 +158,8 @@ def detect_format_issues(text: str) -> List[str]:
     return issues
 
 
-# ======================================================
-# ATS BREAKDOWN — 100-POINT SYSTEM
-# ======================================================
+# ATS BREAKDOWN — 100-POINT SYSTEM#
+
 def ats_breakdown(text: str, exp_level: str):
     fmt_issues = detect_format_issues(text)
 
@@ -210,9 +203,8 @@ def ats_breakdown(text: str, exp_level: str):
     return total, breakdown, suggestions
 
 
-# ======================================================
-# GAUGE
-# ======================================================
+# GAUGE#
+
 def draw_half_gauge(score: int):
     width, height = 600, 350
     img = Image.new("RGB", (width, height), "white")
@@ -224,9 +216,8 @@ def draw_half_gauge(score: int):
     return img
 
 
-# ======================================================
-# LOCAL VISUAL SUGGESTION IMAGE ✅ no more broken link
-# ======================================================
+# LOCAL VISUAL SUGGESTION IMAGE no more broken link
+
 def generate_layout_suggestion():
     img = Image.new("RGB", (900, 350), "#f5f5f5")
     draw = ImageDraw.Draw(img)
@@ -250,9 +241,8 @@ def generate_layout_suggestion():
     return img
 
 
-# ======================================================
-# AI RESUME CARD PREVIEW
-# ======================================================
+# AI RESUME CARD PREVIEW#
+
 def generate_ai_resume(text):
     img = Image.new("RGB", (950, 1300), "white")
     draw = ImageDraw.Draw(img)
@@ -276,10 +266,6 @@ def generate_ai_resume(text):
 
     return img
 
-
-# ======================================================
-# AUTO TEMPLATE FILL
-# ======================================================
 def auto_fill_template(text):
     names = re.findall(r"[A-Z][a-z]+ [A-Z][a-z]+", text)
     name = names[0] if names else "FULL NAME"
@@ -306,9 +292,8 @@ EDUCATION
 """
 
 
-# ======================================================
-# Recruiter View Simulation
-# ======================================================
+# Recruiter View Simulation#
+
 def recruiter_view(text: str):
     bullets = re.findall(r"(?:^|\n)\s*(?:•|\-|\*)\s*(.+)", text)
     metrics = re.findall(r"\b\d+(?:\.\d+)?%?\b", text)
@@ -334,9 +319,7 @@ def recruiter_view(text: str):
     }
 
 
-# ======================================================
-# UI
-# ======================================================
+# UI#
 
 with st.sidebar:
     st.header("Upload Resume")
@@ -352,9 +335,8 @@ tabs = st.tabs([
 ])
 
 
-# ======================================================
 # Preview
-# ======================================================
+
 with tabs[0]:
     if resume:
         st.text_area("Parsed Resume", clean_preview_text(resume), height=360)
@@ -362,9 +344,8 @@ with tabs[0]:
         st.info("Upload a resume to begin.")
 
 
-# ======================================================
 # ATS Score
-# ======================================================
+
 with tabs[1]:
     if resume:
         score, breakdown, tips = ats_breakdown(resume, exp_level)
@@ -381,9 +362,8 @@ with tabs[1]:
         st.info("Upload resume to calculate ATS score.")
 
 
-# ======================================================
 # Missing Sections
-# ======================================================
+
 with tabs[2]:
     if resume:
         st.subheader("Missing Sections")
@@ -396,29 +376,24 @@ with tabs[2]:
         st.info("Upload resume.")
 
 
-# ======================================================
 # AI Resume
-# ======================================================
+
 with tabs[3]:
     if resume:
         st.image(generate_ai_resume(resume))
     else:
         st.info("Upload resume.")
 
-
-# ======================================================
 # Auto Template
-# ======================================================
+
 with tabs[4]:
     if resume:
         st.code(auto_fill_template(resume))
     else:
         st.info("Upload resume.")
 
-
-# ======================================================
 # Insights
-# ======================================================
+
 def plot_top_words(text):
     tokens = [w for w in words(text) if w not in STOPWORDS and len(w)>2]
     counts = collections.Counter(tokens).most_common(10)
@@ -440,10 +415,8 @@ with tabs[5]:
     else:
         st.info("Upload resume.")
 
-
-# ======================================================
 # Recruiter View
-# ======================================================
+
 with tabs[6]:
     if resume:
         rv = recruiter_view(resume)
@@ -465,6 +438,7 @@ with tabs[6]:
 
     else:
         st.info("Upload resume.")
+
 
 
 
